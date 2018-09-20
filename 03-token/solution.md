@@ -1,6 +1,6 @@
 # Minimum Viable Token
 
-## 1.Simple storage contract
+## Task 6.1 - Simple storage contract
 ```
 pragma solidity ^0.4.0;
 
@@ -17,23 +17,24 @@ contract SimpleStorage {
 }
 ```
 
-## 2. OpenToken contract
+## Task 6.2 - Create OpenToken contract
 ```
+pragma solidity ^0.4.0;
+
 contract OpenToken {
     /* This creates a map with all address balances */
     mapping (address => uint256) public balanceOf;
 }
 ```
 
-## 3. OpenToken constructor
+## Task 6.3 - Add a constructor
 ```
     constructor(uint256 initialSupply) public {
         balanceOf[msg.sender] = initialSupply;
     }
 ```
 
-## 4. Transfer
-
+## Task 6.4 - Transfer
 ```
 /* Send coins */
 function transfer(address _to, uint256 _value) public {
@@ -55,7 +56,7 @@ function transfer(address _to, uint256 _value) public {
 }
 ```
 
-## 6. Description
+## Task 6.6 - Add description
 ```
 /* Initializes contract with initial supply tokens to the creator of the contract */
 function OpenToken(uint256 initialSupply, string tokenName, string tokenSymbol, uint8 decimalUnits) public {

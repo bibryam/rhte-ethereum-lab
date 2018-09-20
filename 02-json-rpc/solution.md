@@ -31,7 +31,7 @@ Convert from hex to decimal:
  
  - Find the balance of the following account: 0xc94770007dda54cF92009BFF0dE90c06F603a09f
 ``` 
- curl https://mainnet.infura.io/ \
+ curl https://mainnet.infura.io/v3/bda837d7e4044d6c8b5b89691c9e262e \
      -X POST \
      -H "Content-Type: application/json" \
      -d '{"jsonrpc":"2.0","method":"eth_getBalance","params": ["0xc94770007dda54cF92009BFF0dE90c06F603a09f", "latest"],"id":1}' 

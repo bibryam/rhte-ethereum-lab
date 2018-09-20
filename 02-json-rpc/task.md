@@ -3,12 +3,18 @@
 ## Task 4 - Interact with the ethereum network
 
 - Find the current network Id
+```
+curl https://mainnet.infura.io/v3/bda837d7e4044d6c8b5b89691c9e262e \
+    -X POST \
+    -H "Content-Type: application/json" \
+    -d '{"jsonrpc":"2.0","method":"net_version","params": [],"id":1}'
+```
 - Find the node version
 - Find latest block number
 - Find the balance of the following account: 0xc94770007dda54cF92009BFF0dE90c06F603a09f
 Convert from hex to decimal:  
 
-####References
+#### References
  - JSON-RPC API Documentation: https://github.com/ethereum/wiki/wiki/JSON-RPC  
  - Infura URL https://mainnet.infura.io/v3/bda837d7e4044d6c8b5b89691c9e262e  
  - Web3JS usage example: https://ethereum.nyc/web3/index.html  

@@ -1,6 +1,6 @@
 # Minimum Viable Token
 
-## 1. Simple storage contract
+## Task 6.1 - Simple storage contract
 Let us begin with the most basic example in Solidity. It is fine if you do not understand everything right now, we will go into more detail later.
 Following the above steps, create a new contract `SimpleStorage.sol` with the following content: 
 
@@ -44,7 +44,7 @@ From top right corner - Run:
 [Solidity Style Guide](https://solidity.readthedocs.io/en/v0.4.24/style-guide.html)
 
 
-## 2. OpenToken contract
+## Task 6.2 - Create OpenToken contract
 So let's start with a simple token. Create a new contract `OpenToken`.
 The contract should have a `public balanceOf` field. The field is of type `mamapping (address => uint256)`
 ```
@@ -52,7 +52,7 @@ mamapping (address => uint256)
 ```
 A mapping means an associative array, where you associate addresses with balances. The addresses are in the basic hexadecimal Ethereum format, while the balances are integers. The public keyword, means that this variable will be accessible by anyone on the blockchain, meaning all balances are public (as they need to be, in order for clients to display them).
 
-## 3. OpenToken constructor
+## Task 6.3 - Add a constructor
 If you published your contract right away, it would work but wouldn't be very useful: it would be a contract that could query the balance of your coin for any address but since you never created a single coin, every one of them would return 0. So we are going to create a few tokens on startup. Create a constructor that accepts a single parameter of type `uint256`. In the constructor, initialze the balance of the address creating the contract with the parameter value `balanceOf[msg.sender] = initialSupply;`
 
 ```
@@ -61,7 +61,7 @@ balanceOf[msg.sender] = initialSupply;
 
 Take a look at the right column beside the contract and you'll see a drop-down list, written pick a contract. Select the `OpenToken` contract and you'll see that now it shows a section called Constructor parameters. These are changeable parameters for your token, so you can reuse the same code and only change these variables in the future.
 
-## 4. Transfer
+## Task 6.4 - Transfer
 Right now you have a functional contract that created balances of tokens but since there isn't any function to move it, all it does is stay on the same account. So we are going to implement that now. Write the following code before the last bracket.
 
 This is a very straightforward function: it has a recipient and a value as the parameter and whenever someone calls it, it will subtract the _value from their balance and add it to the _to balance. 
@@ -72,7 +72,7 @@ function transfer(address _to, uint256 _value) public {
     balanceOf[_to] += _value;
 ```
 
-## 5. Validate
+## Task 6.5 - Validate transfer
 Right away there's an obvious problem: what happens if the person wants to send more than it owns? Since we don't want to handle debt in this particular contract, we are simply going to make a quick check and if the sender doesn't have enough funds the contract execution will simply stop. It's also to check for overflows, to avoid having a number so big that it becomes zero again.
 
 To stop a contract execution mid-execution you can either return or throw The former will cost less gas but it can be more headache as any changes you did to the contract so far will be kept. In the other hand, 'throw' will cancel all contract execution, revert any changes that transaction could have made and the sender will lose all Ether he sent for gas. But since the Wallet can detect that a contract will throw, it always shows an alert, therefore preventing any Ether to be spent at all.
@@ -81,7 +81,7 @@ To stop a contract execution mid-execution you can either return or throw The fo
 require(balanceOf[msg.sender] >= _value && balanceOf[_to] + _value >= balanceOf[_to]);
 ```
 
-## 6. Description
+## Task 6.6 - Add description
 Add the following fields to the token definition and include them into the constructor:
 
 string name;    // Set the name for display purposes

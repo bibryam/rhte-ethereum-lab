@@ -1,8 +1,9 @@
+# Ethereum Oracle based on Apache Camel
+
 Run Camel based oracle following this sample
 https://github.com/bibryam/camel-ethereum-oracle
 
-
-Deploy the following contract
+## Task 10.1 - Deploy the following contract
 ```
 pragma solidity ^0.4.23;
 
@@ -38,7 +39,6 @@ contract Oracle {
 }
 ```
 
+## Task 10.2 - Run event listener
 
-Run event listener
-
-Run event triggering transactions
+## Task 10.2 - Run event triggering transactions
