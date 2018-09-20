@@ -1,6 +1,6 @@
 # ICO Creation
 
-## Task 9.1 - Create ERCO20 
+## Task 9.1 - Create ERC-20 
 In Remix, create EIP20Interface.sol contract.
 
 ## Task 9.2 - Create TheBestToken
