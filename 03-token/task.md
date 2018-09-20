@@ -75,7 +75,7 @@ function transfer(address _to, uint256 _value) public {
 ## Task 6.5 - Validate transfer
 Right away there's an obvious problem: what happens if the person wants to send more than it owns? Since we don't want to handle debt in this particular contract, we are simply going to make a quick check and if the sender doesn't have enough funds the contract execution will simply stop. It's also to check for overflows, to avoid having a number so big that it becomes zero again.
 
-To stop a contract execution mid-execution you can either return or throw The former will cost less gas but it can be more headache as any changes you did to the contract so far will be kept. In the other hand, 'throw' will cancel all contract execution, revert any changes that transaction could have made and the sender will lose all Ether he sent for gas. But since the Wallet can detect that a contract will throw, it always shows an alert, therefore preventing any Ether to be spent at all.
+To stop a contract execution mid-execution you can either return or throw. The former will cost less gas but it can be more headache as any changes you did to the contract so far will be kept. In the other hand, 'throw' will cancel all contract execution, revert any changes that transaction could have made and the sender will lose all Ether he sent for gas. But since the Wallet can detect that a contract will throw, it always shows an alert, therefore preventing any Ether to be spent at all.
 
 ```
 require(balanceOf[msg.sender] >= _value && balanceOf[_to] + _value >= balanceOf[_to]);
@@ -83,9 +83,9 @@ require(balanceOf[msg.sender] >= _value && balanceOf[_to] + _value >= balanceOf[
 
 ## Task 6.6 - Add description
 Add the following fields to the token definition and include them into the constructor:
-
+```
 string name;    // Set the name for display purposes
 string symbol;  // Set the symbol for display purposes
 uint8 decimals;  // Amount of decimals for display purposes
-        
-And now we update the constructor function to allow all those variables to be set up at the start:
+```        
+And now we update the constructor function to allow all those variables to be set up at the start.
